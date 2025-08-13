@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CoinRowView: View {
 
-    let coin: CoinModel = .mock
+    let coin: CoinModel
     let showHoldingsColumn: Bool
 
     var body: some View {
@@ -68,11 +68,11 @@ struct CoinRowView: View {
 }
 
 #Preview("Light", traits: .sizeThatFitsLayout) {
-    CoinRowView(showHoldingsColumn: true)
+    CoinRowView(coin: CoinModel.mock, showHoldingsColumn: true)
         .preferredColorScheme(.light)
 }
 
 #Preview("Dark", traits: .sizeThatFitsLayout) {
-    CoinRowView(showHoldingsColumn: false)
+    CoinRowView(coin: CoinModel.mock, showHoldingsColumn: false)
         .preferredColorScheme(.dark)
 }

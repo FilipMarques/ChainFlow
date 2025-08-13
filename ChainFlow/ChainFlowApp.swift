@@ -9,12 +9,16 @@ import SwiftUI
 
 @main
 struct ChainFlowApp: App {
+
+    @StateObject private var vm = HomeViewModel()
+
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 HomeView()
-//                    .navigationBarHidden(false)
+                    .navigationBarHidden(false)
             }
+            .environmentObject(vm)
         }
     }
 }
