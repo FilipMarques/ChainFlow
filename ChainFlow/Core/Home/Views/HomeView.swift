@@ -36,6 +36,9 @@ struct HomeView: View {
                 Spacer(minLength: 0)
             }
         }
+        .onAppear {
+            
+        }
     }
 
     private var homeHeader: some View {

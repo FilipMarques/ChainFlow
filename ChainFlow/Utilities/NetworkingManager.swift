@@ -14,7 +14,7 @@ class NetworkingManager {
         case badURLResponse(url: URL)
         case unknown
 
-        var description: String? {
+        var errorDescription: String? {
             switch self {
             case .badURLResponse(url: let url):
                 return "[🔥] Bad response for URL \(url)"
@@ -33,7 +33,6 @@ class NetworkingManager {
     }
 
     static func handleURLResponse(output: URLSession.DataTaskPublisher.Output, url: URL) throws -> Data {
-        throw NetworkingError.badURLResponse(url: url)
         guard let response = output.response as? HTTPURLResponse,
               response.statusCode >= 200 && response.statusCode < 300 else {
             throw NetworkingError.badURLResponse(url: url)
